@@ -54,7 +54,39 @@
     <main class="wrap">
       <section class="hero">
         <h1>DHCP Role and Joining Workstations in Domain</h1>
-        <p>Add your lab activity content here.</p>
+        <p>Add the DHCP Server role, configure scopes for male and female students, and join client workstations to the domain.</p>
+      </section>
+
+      <section class="card">
+        <div class="sectionTitle">Add Roles</div>
+        <p style="margin:0; color:var(--muted)">DHCP Server</p>
+      </section>
+
+      <section class="card">
+        <div class="sectionTitle">Scopes Configuration</div>
+        <ul style="margin:0; padding-left:18px; color:var(--muted)">
+          <li>Number of <strong style="color:var(--text)">male</strong> students per year and section is the host requirement with the IP block <code>10.0.0.0 /8</code></li>
+          <li>Number of <strong style="color:var(--text)">female</strong> students per year and section is the host requirement with the IP block <code>172.16.0.0 /16</code></li>
+          <li><strong style="color:var(--text)">Server:</strong> Last Usable IP Address</li>
+          <li><strong style="color:var(--text)">Exclude:</strong> First &amp; Last (10 usable IP Addresses)</li>
+          <li><strong style="color:var(--text)">Lease Time:</strong> 16 hours</li>
+          <li><strong style="color:var(--text)">Router:</strong> Server IP Address</li>
+          <li><strong style="color:var(--text)">DNS:</strong> Server IP Address (8.8.8.8)</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <div class="sectionTitle">Client OS Setup</div>
+        <ol style="margin:0; padding-left:18px; color:var(--muted)">
+          <li>Create client OS: 1 Windows XP (<code>LASTNAME-XP</code>) and 1 Windows 7 (<code>LASTNAME-WIN7</code>).</li>
+          <li>Connect the two (2) client OS to your Windows Server Domain <strong style="color:var(--text)">using DHCP</strong>.
+            <ul style="margin:6px 0 0; padding-left:18px">
+              <li>Windows XP IP address must belong to <strong style="color:var(--text)">Class A</strong> network.</li>
+              <li>Windows 7 IP address must belong to <strong style="color:var(--text)">Class B</strong> network.</li>
+            </ul>
+          </li>
+          <li>Login 5 student accounts per section per OS.</li>
+        </ol>
       </section>
 
       <section class="card">
