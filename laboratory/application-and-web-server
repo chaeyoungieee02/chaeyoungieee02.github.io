@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Application and Web Server | IT0S220‑T</title>
+    <link rel="stylesheet" href="../assets/style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="bar">
+        <div class="brand"><b>IT0S220‑T</b><small>Operating Systems</small></div>
+        <nav class="nav">
+          <a class="navlink" href="../index.html">Home</a>
+          <a class="navlink" href="../about.html">About</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <section class="hero">
+        <h1>Application and Web Server</h1>
+        <p>Add your lab activity content here.</p>
+      </section>
+
+      <footer class="footer">
+        <div>© <span id="year"></span> IT0S220‑T • Built on GitHub Pages</div>
+      </footer>
+    </main>
+
+    <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+  </body>
+</html>
