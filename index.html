@@ -4,160 +4,19 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>IT0S220‑T | Operating Systems</title>
-    <style>
-      :root{
-        --bg:#0b0f17;
-        --panel:rgba(255,255,255,.04);
-        --panel2:rgba(255,255,255,.06);
-        --text:#e7eaf0;
-        --muted:#a8b0bf;
-        --line:rgba(255,255,255,.10);
-        --accent:#7c5cff;
-        --radius:16px;
-      }
-      *{box-sizing:border-box}
-      html{scroll-behavior:smooth}
-      body{
-        margin:0;
-        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
-        background:
-          radial-gradient(1200px 600px at 20% 10%, rgba(124,92,255,.18), transparent 60%),
-          radial-gradient(900px 500px at 80% 20%, rgba(56,189,248,.10), transparent 55%),
-          var(--bg);
-        color:var(--text);
-        line-height:1.55;
-      }
-      a{color:inherit; text-decoration:none}
-      .wrap{max-width:980px; margin:0 auto; padding:24px}
-      header{
-        position:sticky; top:0; z-index:20;
-        backdrop-filter: blur(10px);
-        background: rgba(11,15,23,.70);
-        border-bottom:1px solid var(--line);
-      }
-      .bar{
-        display:flex; align-items:center; justify-content:space-between;
-        gap:16px;
-        padding:14px 24px;
-        max-width:980px; margin:0 auto;
-      }
-      .brand{display:flex; flex-direction:column; gap:2px}
-      .brand b{letter-spacing:.2px}
-      .brand small{color:var(--muted)}
-
-      nav{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end; align-items:center}
-      .navlink, .dropbtn{
-        display:inline-flex; align-items:center; gap:8px;
-        padding:8px 10px;
-        border-radius:999px;
-        color:var(--muted);
-        border:1px solid transparent;
-        background:transparent;
-        font:inherit;
-        cursor:pointer;
-      }
-      .navlink:hover, .dropbtn:hover{
-        color:var(--text);
-        border-color:var(--line);
-        background:rgba(255,255,255,.04);
-      }
-
-      /* Dropdown */
-      .dropdown{position:relative}
-      .caret{
-        width:0; height:0;
-        border-left:5px solid transparent;
-        border-right:5px solid transparent;
-        border-top:6px solid var(--muted);
-        transform: translateY(1px);
-      }
-      .menu{
-        position:absolute;
-        right:0;
-        top:calc(100% + 10px);
-        width:min(320px, 78vw);
-        max-height:320px;
-        overflow:auto;
-        padding:8px;
-        border-radius:14px;
-        border:1px solid var(--line);
-        background: rgba(15,22,36,.95);
-        box-shadow: 0 18px 50px rgba(0,0,0,.45);
-        display:none;
-      }
-      .menu a{
-        display:flex; align-items:center; gap:10px;
-        padding:10px 10px;
-        border-radius:12px;
-        color:var(--text);
-      }
-      .menu a:hover{background:rgba(255,255,255,.06)}
-      .win{
-        width:18px; height:18px; border-radius:4px;
-        background: linear-gradient(135deg, #60a5fa, #2563eb);
-        box-shadow: 0 0 0 1px rgba(255,255,255,.15) inset;
-        flex:0 0 auto;
-      }
-      .menu small{color:var(--muted)}
-
-      /* Open rules:
-         - desktop hover opens
-         - mobile/keyboard uses aria-expanded="true"
-      */
-      .dropdown:hover .menu{display:block}
-      .dropdown[aria-expanded="true"] .menu{display:block}
-      .dropdown[aria-expanded="true"] .caret{border-top-color:var(--text)}
-
-      /* Page sections */
-      section{scroll-margin-top:90px}
-      .hero{padding:44px 0 20px}
-      .hero h1{
-        font-size: clamp(30px, 4vw, 46px);
-        line-height:1.1;
-        margin:0 0 12px;
-        letter-spacing:-.6px;
-      }
-      .hero p{margin:0; color:var(--muted); max-width:70ch}
-
-      .card{
-        margin-top:18px;
-        padding:18px 18px;
-        border:1px solid var(--line);
-        background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-        border-radius: var(--radius);
-      }
-      .sectionTitle{
-        margin:0 0 10px;
-        font-size:12px;
-        letter-spacing:.14em;
-        color:var(--muted);
-        text-transform:uppercase;
-      }
-      footer{
-        border-top:1px solid var(--line);
-        color:var(--muted);
-        padding:22px 0;
-        margin-top:26px;
-      }
-
-      @media (max-width: 720px){
-        .bar{padding:12px 16px}
-        .wrap{padding:18px 16px}
-        .menu{left:0; right:auto}
-      }
-    </style>
+    <link rel="stylesheet" href="assets/style.css" />
   </head>
 
   <body>
-    <header>
+    <header class="header">
       <div class="bar">
         <div class="brand">
           <b>IT0S220‑T</b>
           <small>Operating Systems</small>
         </div>
 
-        <nav>
-          <a class="navlink" href="#overview">Home</a>
+        <nav class="nav">
+          <a class="navlink" href="index.html">Home</a>
 
           <div class="dropdown" id="winDropdown" aria-expanded="false">
             <button class="dropbtn" id="winBtn" type="button" aria-haspopup="true" aria-expanded="false">
@@ -165,108 +24,45 @@
             </button>
 
             <div class="menu" role="menu" aria-label="Windows Installation versions">
-              <!-- Put your real pages later. For now these are placeholders. -->
-              <a role="menuitem" href="#win-95"><span class="win"></span> Windows 95</a>
-              <a role="menuitem" href="#win-98"><span class="win"></span> Windows 98</a>
-              <a role="menuitem" href="#win-nt"><span class="win"></span> Windows NT</a>
-              <a role="menuitem" href="#win-2000"><span class="win"></span> Windows 2000</a>
-              <a role="menuitem" href="#win-me"><span class="win"></span> Windows ME</a>
-              <a role="menuitem" href="#win-xp"><span class="win"></span> Windows XP</a>
-              <a role="menuitem" href="#win-2003"><span class="win"></span> Windows Server 2003</a>
-              <a role="menuitem" href="#win-vista"><span class="win"></span> Windows Vista</a>
-              <a role="menuitem" href="#win-2008"><span class="win"></span> Windows Server 2008</a>
-              <a role="menuitem" href="#win-7"><span class="win"></span> Windows 7</a>
-              <a role="menuitem" href="#win-8"><span class="win"></span> Windows 8</a>
-              <a role="menuitem" href="#win-10"><span class="win"></span> Windows 10</a>
-              <a role="menuitem" href="#win-11"><span class="win"></span> Windows 11</a>
-
-              <div style="padding:8px 10px; color:var(--muted); border-top:1px solid var(--line); margin-top:8px;">
-                <small>Tip: later you can change these links to pages like <b>windows/win11.html</b>.</small>
-              </div>
+              <a role="menuitem" href="windows/win95.html"><span class="win"></span> Windows 95</a>
+              <a role="menuitem" href="windows/win98.html"><span class="win"></span> Windows 98</a>
+              <a role="menuitem" href="windows/winnt.html"><span class="win"></span> Windows NT</a>
+              <a role="menuitem" href="windows/win2000.html"><span class="win"></span> Windows 2000</a>
+              <a role="menuitem" href="windows/winme.html"><span class="win"></span> Windows ME</a>
+              <a role="menuitem" href="windows/winxp.html"><span class="win"></span> Windows XP</a>
+              <a role="menuitem" href="windows/winserver2003.html"><span class="win"></span> Windows Server 2003</a>
+              <a role="menuitem" href="windows/winvista.html"><span class="win"></span> Windows Vista</a>
+              <a role="menuitem" href="windows/winserver2008.html"><span class="win"></span> Windows Server 2008</a>
+              <a role="menuitem" href="windows/win7.html"><span class="win"></span> Windows 7</a>
+              <a role="menuitem" href="windows/win8.html"><span class="win"></span> Windows 8</a>
+              <a role="menuitem" href="windows/win10.html"><span class="win"></span> Windows 10</a>
+              <a role="menuitem" href="windows/win11.html"><span class="win"></span> Windows 11</a>
             </div>
           </div>
 
-          <a class="navlink" href="#about">About</a>
+          <a class="navlink" href="about.html">About</a>
         </nav>
       </div>
     </header>
 
     <main class="wrap">
-      <!-- Home page = Overview only -->
-      <section id="overview" class="hero">
+      <section class="hero">
         <h1>Operating Systems</h1>
         <p>
           An operating system (OS) is core software that manages a computer’s hardware and software resources.
           It handles tasks like running applications, managing memory, organizing files, controlling devices,
           and ensuring security. Without an OS, computers couldn’t function or run programs.
         </p>
-
-        <div class="card">
-          <div class="sectionTitle">Overview</div>
-          <p style="margin:0; color:var(--muted)">
-            Use the <b>Windows Installation</b> dropdown in the navigation bar to jump to a specific version.
-          </p>
-        </div>
       </section>
 
-      <!-- Optional anchor targets so the dropdown links work now -->
-      <section id="win-95" class="card"><div class="sectionTitle">Windows 95</div><p style="margin:0;color:var(--muted)">Add your installation notes here.</p></section>
-      <section id="win-98" class="card"><div class="sectionTitle">Windows 98</div><p style="margin:0;color:var(--muted)">Add your installation notes here.</p></section>
-      <section id="win-nt" class="card"><div class="sectionTitle">Windows NT</div><p style="margin:0;color:var(--muted)">Add your installation notes here.</p></section>
-      <section id="win-2000" class="card"><div class="sectionTitle">Windows 2000</div><p style="margin:0;color:var(--muted)">Add your installation notes here.</p></section>
-      <section id="win-me" class="card"><div class="sectionTitle">Windows ME</div><p style="margin:0;color:var(--muted)">Add your installation notes here.</p></section>
-      <section id="win-xp" class="card"><div class="sectionTitle">Windows XP</div><p style="margin:0;color:var(--muted)">Add your installation notes here.</p></section>
-      <section id="win-2003" class="card"><div class="sectionTitle">Windows Server 2003</div><p style="margin:0;color:var(--muted)">Add your installation notes here.</p></section>
-      <section id="win-vista" class="card"><div class="sectionTitle">Windows Vista</div><p style="margin:0;color:var(--muted)">Add your installation notes here.</p></section>
-      <section id="win-2008" class="card"><div class="sectionTitle">Windows Server 2008</div><p style="margin:0;color:var(--muted)">Add your installation notes here.</p></section>
-      <section id="win-7" class="card"><div class="sectionTitle">Windows 7</div><p style="margin:0;color:var(--muted)">Add your installation notes here.</p></section>
-      <section id="win-8" class="card"><div class="sectionTitle">Windows 8</div><p style="margin:0;color:var(--muted)">Add your installation notes here.</p></section>
-      <section id="win-10" class="card"><div class="sectionTitle">Windows 10</div><p style="margin:0;color:var(--muted)">Add your installation notes here.</p></section>
-      <section id="win-11" class="card"><div class="sectionTitle">Windows 11</div><p style="margin:0;color:var(--muted)">Add your installation notes here.</p></section>
-
-      <section id="about" class="card">
-        <div class="sectionTitle">About</div>
-        <p style="margin:0; color:var(--muted)">
-          Replace this with your details (name, section, links).
-        </p>
-      </section>
-
-      <footer>
+      <footer class="footer">
         <div>© <span id="year"></span> IT0S220‑T • Built on GitHub Pages</div>
       </footer>
     </main>
 
+    <script src="assets/site.js"></script>
     <script>
-      // Year
       document.getElementById("year").textContent = new Date().getFullYear();
-
-      // Mobile-friendly dropdown toggle (tap to open/close)
-      const dd = document.getElementById("winDropdown");
-      const btn = document.getElementById("winBtn");
-
-      function setOpen(open){
-        dd.setAttribute("aria-expanded", String(open));
-        btn.setAttribute("aria-expanded", String(open));
-      }
-
-      btn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        const open = dd.getAttribute("aria-expanded") === "true";
-        setOpen(!open);
-      });
-
-      // Close dropdown when clicking elsewhere
-      document.addEventListener("click", () => setOpen(false));
-
-      // Close when a menu item is selected
-      dd.querySelectorAll(".menu a").forEach(a => {
-        a.addEventListener("click", () => setOpen(false));
-      });
-
-      // Close with Escape
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") setOpen(false);
-      });
     </script>
   </body>
 </html>
