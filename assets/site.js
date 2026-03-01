@@ -1,27 +1,38 @@
-// Mobile-friendly dropdown toggle (tap to open/close)
+// Mobile-friendly dropdown toggle (tap to open/close) for ALL dropdowns
 (function () {
-  const dd = document.getElementById("winDropdown");
-  const btn = document.getElementById("winBtn");
-  if (!dd || !btn) return;
-
-  function setOpen(open) {
+  function setOpen(dd, open) {
     dd.setAttribute("aria-expanded", String(open));
-    btn.setAttribute("aria-expanded", String(open));
+    const btn = dd.querySelector(".dropbtn");
+    if (btn) btn.setAttribute("aria-expanded", String(open));
   }
 
-  btn.addEventListener("click", (e) => {
-    e.stopPropagation();
-    const open = dd.getAttribute("aria-expanded") === "true";
-    setOpen(!open);
+  // Close all dropdowns
+  function closeAll() {
+    document.querySelectorAll(".dropdown").forEach((dd) => setOpen(dd, false));
+  }
+
+  // Initialize each dropdown
+  document.querySelectorAll(".dropdown").forEach((dd) => {
+    const btn = dd.querySelector(".dropbtn");
+    if (!btn) return;
+
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const isOpen = dd.getAttribute("aria-expanded") === "true";
+      closeAll();
+      setOpen(dd, !isOpen);
+    });
+
+    dd.querySelectorAll(".menu a").forEach((a) => {
+      a.addEventListener("click", () => setOpen(dd, false));
+    });
   });
 
-  document.addEventListener("click", () => setOpen(false));
+  // Click outside closes
+  document.addEventListener("click", closeAll);
 
-  dd.querySelectorAll(".menu a").forEach((a) => {
-    a.addEventListener("click", () => setOpen(false));
-  });
-
+  // Escape closes
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") setOpen(false);
+    if (e.key === "Escape") closeAll();
   });
 })();
