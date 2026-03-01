@@ -1,10 +1,210 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>My site</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>IT0S220-T | Operating Systems</title>
+    <style>
+      :root{
+        --bg:#0b0f17;
+        --card:#0f1624;
+        --text:#e7eaf0;
+        --muted:#a8b0bf;
+        --line:rgba(255,255,255,.10);
+        --accent:#7c5cff;
+        --accent2:#22c55e;
+        --radius:16px;
+      }
+      *{box-sizing:border-box}
+      body{
+        margin:0;
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
+        background: radial-gradient(1200px 600px at 20% 10%, rgba(124,92,255,.18), transparent 60%),
+                    radial-gradient(900px 500px at 80% 20%, rgba(34,197,94,.12), transparent 55%),
+                    var(--bg);
+        color:var(--text);
+        line-height:1.55;
+      }
+      a{color:inherit; text-decoration:none}
+      .wrap{max-width:980px; margin:0 auto; padding:24px}
+      header{
+        position:sticky; top:0; z-index:10;
+        backdrop-filter: blur(10px);
+        background: rgba(11,15,23,.65);
+        border-bottom:1px solid var(--line);
+      }
+      .bar{
+        display:flex; align-items:center; justify-content:space-between;
+        gap:16px;
+        padding:14px 24px;
+        max-width:980px; margin:0 auto;
+      }
+      .brand{
+        display:flex; flex-direction:column; gap:2px;
+      }
+      .brand b{letter-spacing:.2px}
+      .brand small{color:var(--muted)}
+      nav{display:flex; gap:14px; flex-wrap:wrap; justify-content:flex-end}
+      nav a{
+        padding:8px 10px;
+        border:1px solid transparent;
+        border-radius:999px;
+        color:var(--muted);
+      }
+      nav a:hover{
+        color:var(--text);
+        border-color:var(--line);
+        background:rgba(255,255,255,.04);
+      }
+
+      .hero{padding:44px 0 18px}
+      .hero h1{
+        font-size: clamp(30px, 4vw, 46px);
+        line-height:1.1;
+        margin:0 0 12px;
+        letter-spacing:-.6px;
+      }
+      .hero p{margin:0 0 18px; color:var(--muted); max-width:62ch}
+      .pillrow{display:flex; gap:10px; flex-wrap:wrap; margin-top:18px}
+      .pill{
+        display:inline-flex; align-items:center; gap:8px;
+        padding:10px 12px;
+        border:1px solid var(--line);
+        border-radius:999px;
+        background:rgba(255,255,255,.03);
+        color:var(--text);
+      }
+      .dot{width:8px; height:8px; border-radius:50%}
+      .dot.a{background:var(--accent)}
+      .dot.b{background:var(--accent2)}
+      .dot.c{background:#38bdf8}
+
+      .grid{
+        display:grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap:14px;
+        padding:18px 0 40px;
+      }
+      .card{
+        grid-column: span 6;
+        border:1px solid var(--line);
+        background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+        border-radius: var(--radius);
+        padding:18px;
+      }
+      .card h2{margin:0 0 6px; font-size:16px}
+      .card p{margin:0; color:var(--muted)}
+      .card ul{margin:10px 0 0; padding-left:18px; color:var(--muted)}
+      .card li{margin:6px 0}
+
+      section{scroll-margin-top:86px}
+      .sectionTitle{
+        margin:28px 0 10px;
+        font-size:14px;
+        letter-spacing:.14em;
+        color:var(--muted);
+        text-transform:uppercase;
+      }
+
+      footer{
+        border-top:1px solid var(--line);
+        color:var(--muted);
+        padding:22px 0;
+        margin-top:10px;
+      }
+
+      @media (max-width: 720px){
+        .card{grid-column: span 12}
+        .bar{padding:12px 16px}
+        .wrap{padding:18px 16px}
+      }
+    </style>
   </head>
+
   <body>
-    <h1>Hello from GitHub Pages</h1>
+    <header>
+      <div class="bar">
+        <div class="brand">
+          <b>IT0S220‑T</b>
+          <small>Operating Systems • Minimal Project Site</small>
+        </div>
+        <nav>
+          <a href="#home">Home</a>
+          <a href="#activities">Laboratory Activities</a>
+          <a href="#windows">Windows Installation</a>
+          <a href="#about">About</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <section id="home" class="hero">
+        <h1>Operating Systems</h1>
+        <p>
+          A simple, minimalist page for notes, activities, and guides.
+          Edit the sections below to match your content.
+        </p>
+
+        <div class="pillrow">
+          <span class="pill"><span class="dot a"></span> Clean layout</span>
+          <span class="pill"><span class="dot b"></span> Fast loading</span>
+          <span class="pill"><span class="dot c"></span> GitHub Pages ready</span>
+        </div>
+      </section>
+
+      <div class="grid">
+        <section id="activities" class="card">
+          <div class="sectionTitle">Laboratory Activities</div>
+          <h2>What I’m working on</h2>
+          <p>Add your lab list here.</p>
+          <ul>
+            <li>Lab 1 — Introduction</li>
+            <li>Lab 2 — Processes & Threads</li>
+            <li>Lab 3 — Memory Management</li>
+          </ul>
+        </section>
+
+        <section id="windows" class="card">
+          <div class="sectionTitle">Windows Installation</div>
+          <h2>Quick steps</h2>
+          <p>Replace this with your actual procedure.</p>
+          <ul>
+            <li>Prepare bootable USB (e.g., Rufus)</li>
+            <li>BIOS/UEFI boot settings</li>
+            <li>Install, then drivers + updates</li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <div class="sectionTitle">Overview</div>
+          <h2>What is an OS?</h2>
+          <p>
+            An operating system manages hardware and software resources, enabling programs
+            to run and users to interact with the computer securely and efficiently.
+          </p>
+        </section>
+
+        <section id="about" class="card">
+          <div class="sectionTitle">About</div>
+          <h2>Project info</h2>
+          <p>
+            Update this with your name, section, and links (GitHub, docs, etc.).
+          </p>
+          <ul>
+            <li>Name: (your name)</li>
+            <li>Course: IT0S220‑T</li>
+            <li>Repository: chaeyoungieee02.github.io</li>
+          </ul>
+        </section>
+      </div>
+
+      <footer>
+        <div>© <span id="year"></span> IT0S220‑T • Built on GitHub Pages</div>
+      </footer>
+    </main>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
   </body>
 </html>
