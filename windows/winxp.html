@@ -40,14 +40,56 @@
     <main class="wrap">
       <section class="hero">
         <h1>Windows XP</h1>
-        <p>Add your installation notes here.</p>
+        <p>Installation guide (best installed in a VM; hardware installs may require storage drivers).</p>
+      </section>
+
+      <section class="card">
+        <div class="sectionTitle">Requirements</div>
+        <ul style="margin:0; padding-left:18px; color:var(--muted)">
+          <li>VM: 512 MB–1 GB RAM, 10–40 GB disk</li>
+          <li>Media: Windows XP SP3 ISO recommended</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <div class="sectionTitle">Steps (VM)</div>
+        <ol style="margin:0; padding-left:18px; color:var(--muted)">
+          <li>Create VM; attach XP ISO.</li>
+          <li>Boot; start setup.</li>
+          <li>Create partition; format NTFS (Quick format is ok).</li>
+          <li>Setup completes; reboot; create user account.</li>
+          <li>Install VM tools/Guest Additions for better display and mouse integration.</li>
+        </ol>
+      </section>
+
+      <section class="card">
+        <div class="sectionTitle">Hardware Notes</div>
+        <ul style="margin:0; padding-left:18px; color:var(--muted)">
+          <li>XP may not detect SATA drives without drivers (“Press F6 to install storage drivers”).</li>
+          <li>Modern PCs often won’t support XP drivers.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <div class="sectionTitle">YouTube Video</div>
+        <p style="margin:0 0 10px; color:var(--muted)">Paste your YouTube link below (replace the placeholder).</p>
+        <p style="margin:0 0 12px">
+          Link:
+          <a href="https://youtu.be/VIDEO_ID_HERE" target="_blank" rel="noreferrer">https://youtu.be/VIDEO_ID_HERE</a>
+        </p>
+        <div style="border:1px solid var(--line); border-radius:12px; overflow:hidden; background:rgba(255,255,255,.03)">
+          <iframe width="100%" height="360" style="display:block; border:0"
+            src="https://www.youtube.com/embed/VIDEO_ID_HERE"
+            title="Windows XP installation video"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen loading="lazy"></iframe>
+        </div>
       </section>
 
       <footer class="footer">
         <div>© <span id="year"></span> IT0S220‑T • Built on GitHub Pages</div>
       </footer>
     </main>
-
     <script src="../assets/site.js"></script>
     <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
   </body>
