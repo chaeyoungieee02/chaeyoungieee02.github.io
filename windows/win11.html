@@ -6,23 +6,16 @@
     <title>Windows 11 Installation | IT0S220‑T</title>
     <link rel="stylesheet" href="../assets/style.css" />
   </head>
-
   <body>
     <header class="header">
       <div class="bar">
-        <div class="brand">
-          <b>IT0S220‑T</b>
-          <small>Operating Systems</small>
-        </div>
-
+        <div class="brand"><b>IT0S220‑T</b><small>Operating Systems</small></div>
         <nav class="nav">
           <a class="navlink" href="../index.html">Home</a>
-
           <div class="dropdown" id="winDropdown" aria-expanded="false">
             <button class="dropbtn" id="winBtn" type="button" aria-haspopup="true" aria-expanded="false">
               Windows Installation <span class="caret" aria-hidden="true"></span>
             </button>
-
             <div class="menu" role="menu" aria-label="Windows Installation versions">
               <a role="menuitem" href="win95.html"><span class="win"></span> Windows 95</a>
               <a role="menuitem" href="win98.html"><span class="win"></span> Windows 98</a>
@@ -39,7 +32,6 @@
               <a role="menuitem" href="win11.html"><span class="win"></span> Windows 11</a>
             </div>
           </div>
-
           <a class="navlink" href="../about.html">About</a>
         </nav>
       </div>
@@ -48,17 +40,59 @@
     <main class="wrap">
       <section class="hero">
         <h1>Windows 11</h1>
-        <p>Add your installation notes here.</p>
+        <p>Installation guide (VM or hardware; has requirements).</p>
+      </section>
+
+      <section class="card">
+        <div class="sectionTitle">Requirements</div>
+        <ul style="margin:0; padding-left:18px; color:var(--muted)">
+          <li>TPM 2.0 + Secure Boot (for normal hardware install)</li>
+          <li>4–8 GB RAM recommended; 64+ GB disk recommended</li>
+          <li>Media: Windows 11 ISO</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <div class="sectionTitle">Steps</div>
+        <ol style="margin:0; padding-left:18px; color:var(--muted)">
+          <li>Create bootable USB or attach ISO in VM.</li>
+          <li>Boot installer → Install Now.</li>
+          <li>If hardware check fails: enable TPM/Secure Boot in VM settings (if supported).</li>
+          <li>Custom install → partition disk → Next.</li>
+          <li>Finish OOBE setup.</li>
+          <li>Run Windows Update and install drivers.</li>
+        </ol>
+      </section>
+
+      <section class="card">
+        <div class="sectionTitle">Notes</div>
+        <ul style="margin:0; padding-left:18px; color:var(--muted)">
+          <li>If your PC doesn’t support TPM/Secure Boot, bypass methods exist but are not recommended for school PCs.</li>
+          <li>On VirtualBox, use a recent version and enable TPM if available.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <div class="sectionTitle">YouTube Video</div>
+        <p style="margin:0 0 10px; color:var(--muted)">Paste your YouTube link below (replace the placeholder).</p>
+        <p style="margin:0 0 12px">
+          Link:
+          <a href="https://youtu.be/VIDEO_ID_HERE" target="_blank" rel="noreferrer">https://youtu.be/VIDEO_ID_HERE</a>
+        </p>
+        <div style="border:1px solid var(--line); border-radius:12px; overflow:hidden; background:rgba(255,255,255,.03)">
+          <iframe width="100%" height="360" style="display:block; border:0"
+            src="https://www.youtube.com/embed/VIDEO_ID_HERE"
+            title="Windows 11 installation video"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen loading="lazy"></iframe>
+        </div>
       </section>
 
       <footer class="footer">
         <div>© <span id="year"></span> IT0S220‑T • Built on GitHub Pages</div>
       </footer>
     </main>
-
     <script src="../assets/site.js"></script>
-    <script>
-      document.getElementById("year").textContent = new Date().getFullYear();
-    </script>
+    <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
   </body>
 </html>
