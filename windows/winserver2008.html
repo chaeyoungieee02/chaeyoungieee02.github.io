@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Windows 7 Installation | IT0S220‑T</title>
+    <title>Windows Server 2008 Installation | IT0S220‑T</title>
     <link rel="stylesheet" href="../assets/style.css" />
   </head>
   <body>
@@ -39,36 +39,29 @@
 
     <main class="wrap">
       <section class="hero">
-        <h1>Windows 7</h1>
-        <p>Installation guide (VM or hardware).</p>
+        <h1>Windows Server 2008</h1>
+        <p>Installation guide (VM recommended).</p>
       </section>
 
       <section class="card">
         <div class="sectionTitle">Requirements</div>
         <ul style="margin:0; padding-left:18px; color:var(--muted)">
-          <li>VM: 2 GB RAM (minimum), 25–60 GB disk</li>
-          <li>Media: Windows 7 ISO</li>
+          <li>VM: 2 GB RAM, 20–60 GB disk</li>
+          <li>Media: Windows Server 2008 ISO</li>
         </ul>
       </section>
 
       <section class="card">
         <div class="sectionTitle">Steps</div>
         <ol style="margin:0; padding-left:18px; color:var(--muted)">
-          <li>Create VM; attach Windows 7 ISO (or boot from USB on hardware).</li>
-          <li>Boot → Install Now.</li>
-          <li>Choose Custom install.</li>
-          <li>Partition and format (NTFS). Select target partition.</li>
-          <li>Installation completes; create user and computer name.</li>
-          <li>Install chipset/video/network drivers.</li>
-          <li>Run Windows Update (if it still works in your environment).</li>
+          <li>Create VM; attach Server 2008 ISO.</li>
+          <li>Boot; choose Full installation or Server Core (Core is advanced).</li>
+          <li>Partition disk; install; reboot.</li>
+          <li>Set Administrator password at first login.</li>
+          <li>Install drivers/VM tools.</li>
+          <li>Run Windows Update if possible (may be limited today).</li>
+          <li>Configure roles/features if needed (IIS, AD DS, DNS, File Services).</li>
         </ol>
-      </section>
-
-      <section class="card">
-        <div class="sectionTitle">Tips</div>
-        <p style="margin:0; color:var(--muted)">
-          In a VM, install Guest Additions/VMware Tools for smoother performance.
-        </p>
       </section>
 
       <section class="card">
@@ -81,7 +74,7 @@
         <div style="border:1px solid var(--line); border-radius:12px; overflow:hidden; background:rgba(255,255,255,.03)">
           <iframe width="100%" height="360" style="display:block; border:0"
             src="https://www.youtube.com/embed/VIDEO_ID_HERE"
-            title="Windows 7 installation video"
+            title="Windows Server 2008 installation video"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen loading="lazy"></iframe>
         </div>
