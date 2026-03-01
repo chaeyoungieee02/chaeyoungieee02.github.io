@@ -3,34 +3,36 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>IT0S220-T | Operating Systems</title>
+    <title>IT0S220‑T | Operating Systems</title>
     <style>
       :root{
         --bg:#0b0f17;
-        --card:#0f1624;
+        --panel:rgba(255,255,255,.04);
+        --panel2:rgba(255,255,255,.06);
         --text:#e7eaf0;
         --muted:#a8b0bf;
         --line:rgba(255,255,255,.10);
         --accent:#7c5cff;
-        --accent2:#22c55e;
         --radius:16px;
       }
       *{box-sizing:border-box}
+      html{scroll-behavior:smooth}
       body{
         margin:0;
         font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
-        background: radial-gradient(1200px 600px at 20% 10%, rgba(124,92,255,.18), transparent 60%),
-                    radial-gradient(900px 500px at 80% 20%, rgba(34,197,94,.12), transparent 55%),
-                    var(--bg);
+        background:
+          radial-gradient(1200px 600px at 20% 10%, rgba(124,92,255,.18), transparent 60%),
+          radial-gradient(900px 500px at 80% 20%, rgba(56,189,248,.10), transparent 55%),
+          var(--bg);
         color:var(--text);
         line-height:1.55;
       }
       a{color:inherit; text-decoration:none}
       .wrap{max-width:980px; margin:0 auto; padding:24px}
       header{
-        position:sticky; top:0; z-index:10;
+        position:sticky; top:0; z-index:20;
         backdrop-filter: blur(10px);
-        background: rgba(11,15,23,.65);
+        background: rgba(11,15,23,.70);
         border-bottom:1px solid var(--line);
       }
       .bar{
@@ -39,84 +41,109 @@
         padding:14px 24px;
         max-width:980px; margin:0 auto;
       }
-      .brand{
-        display:flex; flex-direction:column; gap:2px;
-      }
+      .brand{display:flex; flex-direction:column; gap:2px}
       .brand b{letter-spacing:.2px}
       .brand small{color:var(--muted)}
-      nav{display:flex; gap:14px; flex-wrap:wrap; justify-content:flex-end}
-      nav a{
+
+      nav{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end; align-items:center}
+      .navlink, .dropbtn{
+        display:inline-flex; align-items:center; gap:8px;
         padding:8px 10px;
-        border:1px solid transparent;
         border-radius:999px;
         color:var(--muted);
+        border:1px solid transparent;
+        background:transparent;
+        font:inherit;
+        cursor:pointer;
       }
-      nav a:hover{
+      .navlink:hover, .dropbtn:hover{
         color:var(--text);
         border-color:var(--line);
         background:rgba(255,255,255,.04);
       }
 
-      .hero{padding:44px 0 18px}
+      /* Dropdown */
+      .dropdown{position:relative}
+      .caret{
+        width:0; height:0;
+        border-left:5px solid transparent;
+        border-right:5px solid transparent;
+        border-top:6px solid var(--muted);
+        transform: translateY(1px);
+      }
+      .menu{
+        position:absolute;
+        right:0;
+        top:calc(100% + 10px);
+        width:min(320px, 78vw);
+        max-height:320px;
+        overflow:auto;
+        padding:8px;
+        border-radius:14px;
+        border:1px solid var(--line);
+        background: rgba(15,22,36,.95);
+        box-shadow: 0 18px 50px rgba(0,0,0,.45);
+        display:none;
+      }
+      .menu a{
+        display:flex; align-items:center; gap:10px;
+        padding:10px 10px;
+        border-radius:12px;
+        color:var(--text);
+      }
+      .menu a:hover{background:rgba(255,255,255,.06)}
+      .win{
+        width:18px; height:18px; border-radius:4px;
+        background: linear-gradient(135deg, #60a5fa, #2563eb);
+        box-shadow: 0 0 0 1px rgba(255,255,255,.15) inset;
+        flex:0 0 auto;
+      }
+      .menu small{color:var(--muted)}
+
+      /* Open rules:
+         - desktop hover opens
+         - mobile/keyboard uses aria-expanded="true"
+      */
+      .dropdown:hover .menu{display:block}
+      .dropdown[aria-expanded="true"] .menu{display:block}
+      .dropdown[aria-expanded="true"] .caret{border-top-color:var(--text)}
+
+      /* Page sections */
+      section{scroll-margin-top:90px}
+      .hero{padding:44px 0 20px}
       .hero h1{
         font-size: clamp(30px, 4vw, 46px);
         line-height:1.1;
         margin:0 0 12px;
         letter-spacing:-.6px;
       }
-      .hero p{margin:0 0 18px; color:var(--muted); max-width:62ch}
-      .pillrow{display:flex; gap:10px; flex-wrap:wrap; margin-top:18px}
-      .pill{
-        display:inline-flex; align-items:center; gap:8px;
-        padding:10px 12px;
-        border:1px solid var(--line);
-        border-radius:999px;
-        background:rgba(255,255,255,.03);
-        color:var(--text);
-      }
-      .dot{width:8px; height:8px; border-radius:50%}
-      .dot.a{background:var(--accent)}
-      .dot.b{background:var(--accent2)}
-      .dot.c{background:#38bdf8}
+      .hero p{margin:0; color:var(--muted); max-width:70ch}
 
-      .grid{
-        display:grid;
-        grid-template-columns: repeat(12, 1fr);
-        gap:14px;
-        padding:18px 0 40px;
-      }
       .card{
-        grid-column: span 6;
+        margin-top:18px;
+        padding:18px 18px;
         border:1px solid var(--line);
         background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
         border-radius: var(--radius);
-        padding:18px;
       }
-      .card h2{margin:0 0 6px; font-size:16px}
-      .card p{margin:0; color:var(--muted)}
-      .card ul{margin:10px 0 0; padding-left:18px; color:var(--muted)}
-      .card li{margin:6px 0}
-
-      section{scroll-margin-top:86px}
       .sectionTitle{
-        margin:28px 0 10px;
-        font-size:14px;
+        margin:0 0 10px;
+        font-size:12px;
         letter-spacing:.14em;
         color:var(--muted);
         text-transform:uppercase;
       }
-
       footer{
         border-top:1px solid var(--line);
         color:var(--muted);
         padding:22px 0;
-        margin-top:10px;
+        margin-top:26px;
       }
 
       @media (max-width: 720px){
-        .card{grid-column: span 12}
         .bar{padding:12px 16px}
         .wrap{padding:18px 16px}
+        .menu{left:0; right:auto}
       }
     </style>
   </head>
@@ -126,77 +153,83 @@
       <div class="bar">
         <div class="brand">
           <b>IT0S220‑T</b>
-          <small>Operating Systems • Minimal Project Site</small>
+          <small>Operating Systems</small>
         </div>
+
         <nav>
-          <a href="#home">Home</a>
-          <a href="#activities">Laboratory Activities</a>
-          <a href="#windows">Windows Installation</a>
-          <a href="#about">About</a>
+          <a class="navlink" href="#overview">Home</a>
+
+          <div class="dropdown" id="winDropdown" aria-expanded="false">
+            <button class="dropbtn" id="winBtn" type="button" aria-haspopup="true" aria-expanded="false">
+              Windows Installation <span class="caret" aria-hidden="true"></span>
+            </button>
+
+            <div class="menu" role="menu" aria-label="Windows Installation versions">
+              <!-- Put your real pages later. For now these are placeholders. -->
+              <a role="menuitem" href="#win-95"><span class="win"></span> Windows 95</a>
+              <a role="menuitem" href="#win-98"><span class="win"></span> Windows 98</a>
+              <a role="menuitem" href="#win-nt"><span class="win"></span> Windows NT</a>
+              <a role="menuitem" href="#win-2000"><span class="win"></span> Windows 2000</a>
+              <a role="menuitem" href="#win-me"><span class="win"></span> Windows ME</a>
+              <a role="menuitem" href="#win-xp"><span class="win"></span> Windows XP</a>
+              <a role="menuitem" href="#win-2003"><span class="win"></span> Windows Server 2003</a>
+              <a role="menuitem" href="#win-vista"><span class="win"></span> Windows Vista</a>
+              <a role="menuitem" href="#win-2008"><span class="win"></span> Windows Server 2008</a>
+              <a role="menuitem" href="#win-7"><span class="win"></span> Windows 7</a>
+              <a role="menuitem" href="#win-8"><span class="win"></span> Windows 8</a>
+              <a role="menuitem" href="#win-10"><span class="win"></span> Windows 10</a>
+              <a role="menuitem" href="#win-11"><span class="win"></span> Windows 11</a>
+
+              <div style="padding:8px 10px; color:var(--muted); border-top:1px solid var(--line); margin-top:8px;">
+                <small>Tip: later you can change these links to pages like <b>windows/win11.html</b>.</small>
+              </div>
+            </div>
+          </div>
+
+          <a class="navlink" href="#about">About</a>
         </nav>
       </div>
     </header>
 
     <main class="wrap">
-      <section id="home" class="hero">
+      <!-- Home page = Overview only -->
+      <section id="overview" class="hero">
         <h1>Operating Systems</h1>
         <p>
-          A simple, minimalist page for notes, activities, and guides.
-          Edit the sections below to match your content.
+          An operating system (OS) is core software that manages a computer’s hardware and software resources.
+          It handles tasks like running applications, managing memory, organizing files, controlling devices,
+          and ensuring security. Without an OS, computers couldn’t function or run programs.
         </p>
 
-        <div class="pillrow">
-          <span class="pill"><span class="dot a"></span> Clean layout</span>
-          <span class="pill"><span class="dot b"></span> Fast loading</span>
-          <span class="pill"><span class="dot c"></span> GitHub Pages ready</span>
+        <div class="card">
+          <div class="sectionTitle">Overview</div>
+          <p style="margin:0; color:var(--muted)">
+            Use the <b>Windows Installation</b> dropdown in the navigation bar to jump to a specific version.
+          </p>
         </div>
       </section>
 
-      <div class="grid">
-        <section id="activities" class="card">
-          <div class="sectionTitle">Laboratory Activities</div>
-          <h2>What I’m working on</h2>
-          <p>Add your lab list here.</p>
-          <ul>
-            <li>Lab 1 — Introduction</li>
-            <li>Lab 2 — Processes & Threads</li>
-            <li>Lab 3 — Memory Management</li>
-          </ul>
-        </section>
+      <!-- Optional anchor targets so the dropdown links work now -->
+      <section id="win-95" class="card"><div class="sectionTitle">Windows 95</div><p style="margin:0;color:var(--muted)">Add your installation notes here.</p></section>
+      <section id="win-98" class="card"><div class="sectionTitle">Windows 98</div><p style="margin:0;color:var(--muted)">Add your installation notes here.</p></section>
+      <section id="win-nt" class="card"><div class="sectionTitle">Windows NT</div><p style="margin:0;color:var(--muted)">Add your installation notes here.</p></section>
+      <section id="win-2000" class="card"><div class="sectionTitle">Windows 2000</div><p style="margin:0;color:var(--muted)">Add your installation notes here.</p></section>
+      <section id="win-me" class="card"><div class="sectionTitle">Windows ME</div><p style="margin:0;color:var(--muted)">Add your installation notes here.</p></section>
+      <section id="win-xp" class="card"><div class="sectionTitle">Windows XP</div><p style="margin:0;color:var(--muted)">Add your installation notes here.</p></section>
+      <section id="win-2003" class="card"><div class="sectionTitle">Windows Server 2003</div><p style="margin:0;color:var(--muted)">Add your installation notes here.</p></section>
+      <section id="win-vista" class="card"><div class="sectionTitle">Windows Vista</div><p style="margin:0;color:var(--muted)">Add your installation notes here.</p></section>
+      <section id="win-2008" class="card"><div class="sectionTitle">Windows Server 2008</div><p style="margin:0;color:var(--muted)">Add your installation notes here.</p></section>
+      <section id="win-7" class="card"><div class="sectionTitle">Windows 7</div><p style="margin:0;color:var(--muted)">Add your installation notes here.</p></section>
+      <section id="win-8" class="card"><div class="sectionTitle">Windows 8</div><p style="margin:0;color:var(--muted)">Add your installation notes here.</p></section>
+      <section id="win-10" class="card"><div class="sectionTitle">Windows 10</div><p style="margin:0;color:var(--muted)">Add your installation notes here.</p></section>
+      <section id="win-11" class="card"><div class="sectionTitle">Windows 11</div><p style="margin:0;color:var(--muted)">Add your installation notes here.</p></section>
 
-        <section id="windows" class="card">
-          <div class="sectionTitle">Windows Installation</div>
-          <h2>Quick steps</h2>
-          <p>Replace this with your actual procedure.</p>
-          <ul>
-            <li>Prepare bootable USB (e.g., Rufus)</li>
-            <li>BIOS/UEFI boot settings</li>
-            <li>Install, then drivers + updates</li>
-          </ul>
-        </section>
-
-        <section class="card">
-          <div class="sectionTitle">Overview</div>
-          <h2>What is an OS?</h2>
-          <p>
-            An operating system manages hardware and software resources, enabling programs
-            to run and users to interact with the computer securely and efficiently.
-          </p>
-        </section>
-
-        <section id="about" class="card">
-          <div class="sectionTitle">About</div>
-          <h2>Project info</h2>
-          <p>
-            Update this with your name, section, and links (GitHub, docs, etc.).
-          </p>
-          <ul>
-            <li>Name: (your name)</li>
-            <li>Course: IT0S220‑T</li>
-            <li>Repository: chaeyoungieee02.github.io</li>
-          </ul>
-        </section>
-      </div>
+      <section id="about" class="card">
+        <div class="sectionTitle">About</div>
+        <p style="margin:0; color:var(--muted)">
+          Replace this with your details (name, section, links).
+        </p>
+      </section>
 
       <footer>
         <div>© <span id="year"></span> IT0S220‑T • Built on GitHub Pages</div>
@@ -204,7 +237,36 @@
     </main>
 
     <script>
+      // Year
       document.getElementById("year").textContent = new Date().getFullYear();
+
+      // Mobile-friendly dropdown toggle (tap to open/close)
+      const dd = document.getElementById("winDropdown");
+      const btn = document.getElementById("winBtn");
+
+      function setOpen(open){
+        dd.setAttribute("aria-expanded", String(open));
+        btn.setAttribute("aria-expanded", String(open));
+      }
+
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const open = dd.getAttribute("aria-expanded") === "true";
+        setOpen(!open);
+      });
+
+      // Close dropdown when clicking elsewhere
+      document.addEventListener("click", () => setOpen(false));
+
+      // Close when a menu item is selected
+      dd.querySelectorAll(".menu a").forEach(a => {
+        a.addEventListener("click", () => setOpen(false));
+      });
+
+      // Close with Escape
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") setOpen(false);
+      });
     </script>
   </body>
 </html>
