@@ -15,6 +15,39 @@
         </div>
         <nav class="nav">
           <a class="navlink" href="index.html">Home</a>
+          <div class="dropdown" id="labDropdown" aria-expanded="false">
+            <button class="dropbtn" id="labBtn" type="button" aria-haspopup="true" aria-expanded="false">
+              Laboratory Activities <span class="caret" aria-hidden="true"></span>
+            </button>
+            <div class="menu" role="menu" aria-label="Laboratory Activities">
+              <a role="menuitem" href="laboratory/active-directory-creating-users.html"><span class="win"></span> Active Directory: Creating Users</a>
+              <a role="menuitem" href="laboratory/dhcp-role-joining-workstations.html"><span class="win"></span> DHCP Role and Joining Workstations in Domain</a>
+              <a role="menuitem" href="laboratory/application-and-web-server.html"><span class="win"></span> Application and Web Server</a>
+              <a role="menuitem" href="laboratory/raid-installation.html"><span class="win"></span> RAID Installation</a>
+              <a role="menuitem" href="laboratory/group-policy-management.html"><span class="win"></span> Group Policy Management</a>
+              <a role="menuitem" href="laboratory/file-server.html"><span class="win"></span> File Server</a>
+            </div>
+          </div>
+          <div class="dropdown" id="winDropdown" aria-expanded="false">
+            <button class="dropbtn" id="winBtn" type="button" aria-haspopup="true" aria-expanded="false">
+              Windows Installation <span class="caret" aria-hidden="true"></span>
+            </button>
+            <div class="menu" role="menu" aria-label="Windows Installation versions">
+              <a role="menuitem" href="windows/win95.html"><span class="win"></span> Windows 95</a>
+              <a role="menuitem" href="windows/win98.html"><span class="win"></span> Windows 98</a>
+              <a role="menuitem" href="windows/winnt.html"><span class="win"></span> Windows NT</a>
+              <a role="menuitem" href="windows/win2000.html"><span class="win"></span> Windows 2000</a>
+              <a role="menuitem" href="windows/winme.html"><span class="win"></span> Windows ME</a>
+              <a role="menuitem" href="windows/winxp.html"><span class="win"></span> Windows XP</a>
+              <a role="menuitem" href="windows/winserver2003.html"><span class="win"></span> Windows Server 2003</a>
+              <a role="menuitem" href="windows/winvista.html"><span class="win"></span> Windows Vista</a>
+              <a role="menuitem" href="windows/winserver2008.html"><span class="win"></span> Windows Server 2008</a>
+              <a role="menuitem" href="windows/win7.html"><span class="win"></span> Windows 7</a>
+              <a role="menuitem" href="windows/win8.html"><span class="win"></span> Windows 8</a>
+              <a role="menuitem" href="windows/win10.html"><span class="win"></span> Windows 10</a>
+              <a role="menuitem" href="windows/win11.html"><span class="win"></span> Windows 11</a>
+            </div>
+          </div>
           <a class="navlink" href="about.html">About</a>
         </nav>
       </div>
@@ -34,5 +67,6 @@
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
     </script>
+    <script src="assets/site.js"></script>
   </body>
 </html>
