@@ -40,14 +40,55 @@
     <main class="wrap">
       <section class="hero">
         <h1>Windows 2000</h1>
-        <p>Add your installation notes here.</p>
+        <p>Installation guide (best installed in a Virtual Machine; can work on older hardware).</p>
+      </section>
+
+      <section class="card">
+        <div class="sectionTitle">Requirements</div>
+        <ul style="margin:0; padding-left:18px; color:var(--muted)">
+          <li>VM: 256–512 MB RAM, 4–20 GB disk</li>
+          <li>Media: Windows 2000 ISO</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <div class="sectionTitle">Steps</div>
+        <ol style="margin:0; padding-left:18px; color:var(--muted)">
+          <li>Create VM; attach Windows 2000 ISO.</li>
+          <li>Boot from ISO; start text-mode setup.</li>
+          <li>Create partition and choose NTFS.</li>
+          <li>Setup copies files; reboot; finish GUI setup.</li>
+          <li>Install drivers and (optional) Service Pack updates.</li>
+        </ol>
+      </section>
+
+      <section class="card">
+        <div class="sectionTitle">Notes</div>
+        <p style="margin:0; color:var(--muted)">
+          Windows 2000 is lighter than XP but still needs good driver support.
+        </p>
+      </section>
+
+      <section class="card">
+        <div class="sectionTitle">YouTube Video</div>
+        <p style="margin:0 0 10px; color:var(--muted)">Paste your YouTube link below (replace the placeholder).</p>
+        <p style="margin:0 0 12px">
+          Link:
+          <a href="https://youtu.be/VIDEO_ID_HERE" target="_blank" rel="noreferrer">https://youtu.be/VIDEO_ID_HERE</a>
+        </p>
+        <div style="border:1px solid var(--line); border-radius:12px; overflow:hidden; background:rgba(255,255,255,.03)">
+          <iframe width="100%" height="360" style="display:block; border:0"
+            src="https://www.youtube.com/embed/VIDEO_ID_HERE"
+            title="Windows 2000 installation video"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen loading="lazy"></iframe>
+        </div>
       </section>
 
       <footer class="footer">
         <div>© <span id="year"></span> IT0S220‑T • Built on GitHub Pages</div>
       </footer>
     </main>
-
     <script src="../assets/site.js"></script>
     <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
   </body>
