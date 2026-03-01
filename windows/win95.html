@@ -6,23 +6,16 @@
     <title>Windows 95 Installation | IT0S220‑T</title>
     <link rel="stylesheet" href="../assets/style.css" />
   </head>
-
   <body>
     <header class="header">
       <div class="bar">
-        <div class="brand">
-          <b>IT0S220‑T</b>
-          <small>Operating Systems</small>
-        </div>
-
+        <div class="brand"><b>IT0S220‑T</b><small>Operating Systems</small></div>
         <nav class="nav">
           <a class="navlink" href="../index.html">Home</a>
-
           <div class="dropdown" id="winDropdown" aria-expanded="false">
             <button class="dropbtn" id="winBtn" type="button" aria-haspopup="true" aria-expanded="false">
               Windows Installation <span class="caret" aria-hidden="true"></span>
             </button>
-
             <div class="menu" role="menu" aria-label="Windows Installation versions">
               <a role="menuitem" href="win95.html"><span class="win"></span> Windows 95</a>
               <a role="menuitem" href="win98.html"><span class="win"></span> Windows 98</a>
@@ -39,7 +32,6 @@
               <a role="menuitem" href="win11.html"><span class="win"></span> Windows 11</a>
             </div>
           </div>
-
           <a class="navlink" href="../about.html">About</a>
         </nav>
       </div>
@@ -48,14 +40,77 @@
     <main class="wrap">
       <section class="hero">
         <h1>Windows 95</h1>
-        <p>Add your installation notes here.</p>
+        <p>Installation guide (best installed in a Virtual Machine).</p>
       </section>
 
       <section class="card">
-        <div class="sectionTitle">Notes</div>
-        <p style="margin:0;color:var(--muted)">
-          You can write requirements, boot media steps, partitions, and post-install setup here.
+        <div class="sectionTitle">Requirements</div>
+        <ul style="margin:0; padding-left:18px; color:var(--muted)">
+          <li>VM: 64–128 MB RAM (more can work), 500 MB–2 GB disk, 1 CPU</li>
+          <li>Media: Windows 95 CD/ISO + boot floppy image (often needed)</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <div class="sectionTitle">Steps (VM approach)</div>
+        <ol style="margin:0; padding-left:18px; color:var(--muted)">
+          <li>Create new VM (Other/DOS or Windows 95 profile if available).</li>
+          <li>Attach a Windows 95 boot floppy image to Floppy (or boot ISO that includes DOS tools).</li>
+          <li>Boot the VM to DOS.</li>
+          <li>Partition the disk:
+            <ul>
+              <li>Run: <code>FDISK</code></li>
+              <li>Create Primary DOS partition, set it Active, then reboot.</li>
+            </ul>
+          </li>
+          <li>Format the disk:
+            <ul><li>Run: <code>FORMAT C: /S</code></li></ul>
+          </li>
+          <li>Mount the Windows 95 CD/ISO.</li>
+          <li>Start setup:
+            <ul>
+              <li>Go to CD drive (ex: <code>D:</code>)</li>
+              <li>Run: <code>SETUP</code></li>
+            </ul>
+          </li>
+          <li>Follow prompts (name, key, components).</li>
+          <li>After install, set display/sound drivers if available; Guest Additions may not fully work.</li>
+        </ol>
+      </section>
+
+      <section class="card">
+        <div class="sectionTitle">Troubleshooting</div>
+        <ul style="margin:0; padding-left:18px; color:var(--muted)">
+          <li>“Missing HIMEM”: adjust VM settings; use correct boot disk.</li>
+          <li>CD-ROM not detected in DOS: load MSCDEX + CD driver in <code>config.sys</code>/<code>autoexec.bat</code>.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <div class="sectionTitle">YouTube Video</div>
+        <p style="margin:0 0 10px; color:var(--muted)">
+          Paste your YouTube link below (replace the placeholder).
         </p>
+
+        <p style="margin:0 0 12px">
+          Link:
+          <a href="https://youtu.be/VIDEO_ID_HERE" target="_blank" rel="noreferrer">
+            https://youtu.be/VIDEO_ID_HERE
+          </a>
+        </p>
+
+        <div style="border:1px solid var(--line); border-radius:12px; overflow:hidden; background:rgba(255,255,255,.03)">
+          <iframe
+            width="100%"
+            height="360"
+            style="display:block; border:0"
+            src="https://www.youtube.com/embed/VIDEO_ID_HERE"
+            title="Windows 95 installation video"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+            loading="lazy"
+          ></iframe>
+        </div>
       </section>
 
       <footer class="footer">
@@ -64,8 +119,6 @@
     </main>
 
     <script src="../assets/site.js"></script>
-    <script>
-      document.getElementById("year").textContent = new Date().getFullYear();
-    </script>
+    <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
   </body>
 </html>
