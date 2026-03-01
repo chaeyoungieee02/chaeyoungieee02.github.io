@@ -40,14 +40,57 @@
     <main class="wrap">
       <section class="hero">
         <h1>Windows Vista</h1>
-        <p>Add your installation notes here.</p>
+        <p>Installation guide (VM recommended).</p>
+      </section>
+
+      <section class="card">
+        <div class="sectionTitle">Requirements</div>
+        <ul style="margin:0; padding-left:18px; color:var(--muted)">
+          <li>VM: 2 GB RAM (minimum), 20–40 GB disk</li>
+          <li>Media: Windows Vista ISO</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <div class="sectionTitle">Steps</div>
+        <ol style="margin:0; padding-left:18px; color:var(--muted)">
+          <li>Create VM; attach Vista ISO.</li>
+          <li>Boot; choose language/time/keyboard.</li>
+          <li>Click Install Now; enter key (or skip if allowed).</li>
+          <li>Choose edition; accept license.</li>
+          <li>Custom Install → select disk/partition (create if needed).</li>
+          <li>Installation runs; reboots multiple times.</li>
+          <li>Complete first-boot setup (username, password, updates).</li>
+        </ol>
+      </section>
+
+      <section class="card">
+        <div class="sectionTitle">Notes</div>
+        <p style="margin:0; color:var(--muted)">
+          Vista needs more resources; performance is better with 2+ cores and 3–4 GB RAM if available.
+        </p>
+      </section>
+
+      <section class="card">
+        <div class="sectionTitle">YouTube Video</div>
+        <p style="margin:0 0 10px; color:var(--muted)">Paste your YouTube link below (replace the placeholder).</p>
+        <p style="margin:0 0 12px">
+          Link:
+          <a href="https://youtu.be/VIDEO_ID_HERE" target="_blank" rel="noreferrer">https://youtu.be/VIDEO_ID_HERE</a>
+        </p>
+        <div style="border:1px solid var(--line); border-radius:12px; overflow:hidden; background:rgba(255,255,255,.03)">
+          <iframe width="100%" height="360" style="display:block; border:0"
+            src="https://www.youtube.com/embed/VIDEO_ID_HERE"
+            title="Windows Vista installation video"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen loading="lazy"></iframe>
+        </div>
       </section>
 
       <footer class="footer">
         <div>© <span id="year"></span> IT0S220‑T • Built on GitHub Pages</div>
       </footer>
     </main>
-
     <script src="../assets/site.js"></script>
     <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
   </body>
